@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using SmallJob.Data;
 using SmallJobsApp_BlueBadge.Models;
 
 namespace SmallJobsApp_BlueBadge.Controllers
