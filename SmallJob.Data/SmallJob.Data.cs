@@ -32,7 +32,7 @@ namespace SmallJob.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet<Job> JobsAvailable { get; set; }
+        public DbSet<JobsAvailable> Jobs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

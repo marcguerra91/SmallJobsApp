@@ -5,16 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmallJob.Data
+namespace SmallJob.Models
 {
-    public class JobsAvailable
+    public class JobCreate
     {
-        [Key]
-        public int JobId { get; set; }
-
-        [Required]
-        public Guid OwnerId { get; set; }
-
         [Required]
         public string TitleOfJob { get; set; }
 
@@ -22,15 +16,12 @@ namespace SmallJob.Data
         public string Description { get; set; }
 
         [Required]
-        [Range(10, 200, ErrorMessage ="Pay range is between $10-$200")]
+        [Range(10, 200, ErrorMessage = "Pay range is between $10-$200")]
         public decimal Pay { get; set; }
 
         [Required]
         public bool EquipmentAvailable { get; set; }
 
-        [Required]
-        public DateTimeOffset CreatedUtc { get; set; }
-
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        public override string ToString() => TitleOfJob;
     }
 }
