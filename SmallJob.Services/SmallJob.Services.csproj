@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JobServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmallJob.Data\SmallJob.Data.csproj">
+      <Project>{6ecffefb-2e8a-4f4d-98c1-00cb0bc6e52b}</Project>
+      <Name>SmallJob.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmallJob.Models\SmallJob.Models.csproj">
+      <Project>{05e792c1-13b9-41a4-a1d8-43acb242bbc5}</Project>
+      <Name>SmallJob.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
