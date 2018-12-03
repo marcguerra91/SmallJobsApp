@@ -9,7 +9,6 @@ namespace SmallJob.Data
 {
     public class Worker
     {
-        [Required]
         [Key]
         public int WorkerId { get; set; }
 
@@ -28,5 +27,7 @@ namespace SmallJob.Data
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         public string Email { get; set; }
 
+        [Required]
+        public int PhoneNumber { get; set; }
     }
 }

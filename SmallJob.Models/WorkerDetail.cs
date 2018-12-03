@@ -7,24 +7,22 @@ using System.Threading.Tasks;
 
 namespace SmallJob.Models
 {
-    public class WorkerCreate
+    class WorkerDetail
     {
         [Required]
-        [MinLength(2, ErrorMessage ="Please enter at least 2 characters.")]
+        [Key]
+        public int WorkerId { get; set; }
+
         public string FirstName { get; set; }
 
-        [Required]
-        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         public string LastName { get; set; }
 
-        [Required]
-        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         public string Email { get; set; }
 
-        [Required]
-        //[MinLength(7)]
         public int PhoneNumber { get; set; }
 
-        public override string ToString() => FirstName;
+        public DateTimeOffset CreatedUtc { get; set; }
+
+        public override string ToString() => $"[{WorkerId}] {FirstName} {LastName} {PhoneNumber} {Email} {CreatedUtc}";
     }
 }

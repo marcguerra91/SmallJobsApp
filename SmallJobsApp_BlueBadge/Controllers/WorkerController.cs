@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace SmallJobsApp_BlueBadge.Controllers
 {
+    [Authorize]
     public class WorkerController : Controller
     {
         // GET: Worker
@@ -30,17 +31,27 @@ namespace SmallJobsApp_BlueBadge.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(WorkerCreate model)
         {
-            if (!ModelState.IsValid)
-            {
-            return View(model);
-            }
+            if (!ModelState.IsValid) return View(model);
 
+            var service = CreateWorkerService();
+
+            if (service.CreateWorker(model))
+            {
+                TempData["SaveResult"] = "Worker has been added.";
+            return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Worker could not be created.");
+
+        return View(model);
+        }
+
+
+        private WorkerService CreateWorkerService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new WorkerService(userId);
-
-            service.CreateWorker(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }

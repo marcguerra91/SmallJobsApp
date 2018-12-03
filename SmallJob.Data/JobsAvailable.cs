@@ -23,7 +23,7 @@ namespace SmallJob.Data
 
         [Required]
         [Range(10, 200, ErrorMessage ="Pay range is between $10-$200")]
-        public decimal Pay { get; set; }
+        public int Pay { get; set; }
 
         [Required]
         public bool EquipmentAvailable { get; set; }

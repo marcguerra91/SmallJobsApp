@@ -36,8 +36,10 @@ namespace SmallJobsApp_BlueBadge.Controllers
 
             if (service.CreateJob(model))
             {
+                TempData["SaveResult"] = "Your job has been added to the list!";
             return RedirectToAction("Index");
             };
+            ModelState.AddModelError("", "Oh no, your job could not be created!");
 
             return View(model);
 

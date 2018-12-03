@@ -51,6 +51,7 @@ namespace SmallJob.Services
                             {
                                 JobId = e.JobId,
                                 TitleOfJob = e.TitleOfJob,
+                                Pay = e.Pay,
                                 CreatedUtc = e.CreatedUtc
                             }
                          );

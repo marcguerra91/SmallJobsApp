@@ -25,7 +25,8 @@ namespace SmallJob.Services
                     OwnerId = _userId,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    Email = model.Email
+                    Email = model.Email,
+                    PhoneNumber = model.PhoneNumber
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -50,9 +51,10 @@ namespace SmallJob.Services
                             WorkerId = e.WorkerId,
                             FirstName = e.FirstName,
                             LastName = e.LastName,
-
+                            Email = e.Email,
+                            PhoneNumber = e.PhoneNumber
                         }
-                        );
+                     );
                 return query.ToArray();
 
             }
