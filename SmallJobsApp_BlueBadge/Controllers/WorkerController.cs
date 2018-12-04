@@ -54,6 +54,67 @@ namespace SmallJobsApp_BlueBadge.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateWorkerService();
+            var detail = service.GetWorkerById(id);
+            var model =
+                new WorkerEdit
+                {
+                    WorkerId = detail.WorkerId,
+                    FirstName = detail.FirstName,
+                    LastName = detail.LastName,
+                    Email = detail.Email,
+                    PhoneNumber = detail.PhoneNumber
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, WorkerEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.WorkerId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                    return View(model);
+            }
+
+            var service = CreateWorkerService();
+
+            if (service.UpdateWorker(model))
+            {
+                TempData["SaveResult"] = "Your worker was updated.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Your worker could not be updated.");
+            return View(model);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateWorkerService();
+            var model = svc.GetWorkerById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateWorkerService();
+
+            service.DeleteWorker(id);
+
+            TempData["SaveResult"] = "Your worker was deleted";
+
+            return RedirectToAction("Index");
+        }
+
         private WorkerService CreateWorkerService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

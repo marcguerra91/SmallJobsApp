@@ -81,5 +81,37 @@ namespace SmallJob.Services
                     };
             }
         }
+
+        public bool UpdateWorker(WorkerEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Workers
+                    .Single(e => e.WorkerId == model.WorkerId && e.OwnerId == _userId);
+
+                entity.FirstName = model.FirstName;
+                entity.LastName = model.LastName;
+                entity.Email = model.Email;
+                entity.PhoneNumber = model.PhoneNumber;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteWorker(int workerId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Workers
+                    .Single(e => e.WorkerId == workerId && e.OwnerId == _userId);
+
+                ctx.Workers.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

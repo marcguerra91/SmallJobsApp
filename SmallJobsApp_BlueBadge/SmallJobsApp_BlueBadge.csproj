@@ -275,6 +275,8 @@
     <Content Include="Views\SmallJob\Edit.cshtml" />
     <Content Include="Views\SmallJob\Delete.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
+    <Content Include="Views\Worker\Edit.cshtml" />
+    <Content Include="Views\Worker\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
