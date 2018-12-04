@@ -80,5 +80,39 @@ namespace SmallJob.Services
                     };
             }
         }
+
+        public bool UpdateJob(JobEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Jobs
+                    .Single(e => e.JobId == model.JobId && e.OwnerId == _userId);
+
+                entity.TitleOfJob = model.TitleOfJob;
+                entity.Description = model.Description;
+                entity.Pay = model.Pay;
+                entity.EquipmentAvailable = model.EquipmentAvailable;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteJob(int jobId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Jobs
+                    .Single(e => e.JobId == jobId && e.OwnerId == _userId);
+
+                ctx.Jobs.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

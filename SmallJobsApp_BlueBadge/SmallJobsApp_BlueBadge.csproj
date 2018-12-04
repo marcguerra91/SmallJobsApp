@@ -272,6 +272,9 @@
     <Content Include="Views\Worker\Create.cshtml" />
     <Content Include="Views\Worker\Details.cshtml" />
     <Content Include="Views\SmallJob\Details.cshtml" />
+    <Content Include="Views\SmallJob\Edit.cshtml" />
+    <Content Include="Views\SmallJob\Delete.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

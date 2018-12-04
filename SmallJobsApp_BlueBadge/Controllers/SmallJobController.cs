@@ -59,5 +59,67 @@ namespace SmallJobsApp_BlueBadge.Controllers
             var service = new JobServices(userId);
             return service;
         }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateJobService();
+            var detail = service.GetJobById(id);
+            var model =
+                new JobEdit
+                {
+                    JobId = detail.JobId,
+                    TitleOfJob = detail.TitleOfJob,
+                    Description = detail.Description,
+                    Pay = detail.Pay,
+                    EquipmentAvailable = detail.EquipmentAvailable
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, JobEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.JobId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateJobService();
+
+            if (service.UpdateJob(model))
+            {
+                TempData["SaveResult"] = "Your job was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your note could not be updated.");
+            return View(model);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateJobService();
+            var model = svc.GetJobById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateJobService();
+
+            service.DeleteJob(id);
+
+            TempData["SaveResult"] = "Your job was deleted";
+
+            return RedirectToAction("Index");
+        }
     }
 }
