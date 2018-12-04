@@ -46,6 +46,13 @@ namespace SmallJobsApp_BlueBadge.Controllers
         return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateWorkerService();
+            var model = svc.GetWorkerById(id);
+
+            return View(model);
+        }
 
         private WorkerService CreateWorkerService()
         {

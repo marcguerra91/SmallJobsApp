@@ -52,12 +52,34 @@ namespace SmallJob.Services
                             FirstName = e.FirstName,
                             LastName = e.LastName,
                             Email = e.Email,
-                            PhoneNumber = e.PhoneNumber
+                            PhoneNumber = e.PhoneNumber,
+                            CreatedUtc = e.CreatedUtc
                         }
                      );
                 return query.ToArray();
 
             }
-        } 
+        }
+
+        public WorkerDetail GetWorkerById(int workerId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+            var entity =
+                ctx
+                .Workers
+                .Single(e => e.WorkerId == workerId && e.OwnerId == _userId);
+                return
+                    new WorkerDetail
+                    {
+                        WorkerId = entity.WorkerId,
+                        FirstName = entity.FirstName,
+                        LastName = entity.LastName,
+                        Email = entity.Email,
+                        PhoneNumber = entity.PhoneNumber,
+                        CreatedUtc = entity.CreatedUtc
+                    };
+            }
+        }
     }
 }

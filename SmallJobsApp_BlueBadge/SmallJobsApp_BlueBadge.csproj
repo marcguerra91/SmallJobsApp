@@ -270,6 +270,8 @@
     <Content Include="Views\SmallJob\Create.cshtml" />
     <Content Include="Views\Worker\Index.cshtml" />
     <Content Include="Views\Worker\Create.cshtml" />
+    <Content Include="Views\Worker\Details.cshtml" />
+    <Content Include="Views\SmallJob\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

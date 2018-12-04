@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SmallJob.Models
 {
-    class WorkerDetail
+    public class WorkerDetail
     {
         [Required]
         [Key]
@@ -21,6 +21,7 @@ namespace SmallJob.Models
 
         public int PhoneNumber { get; set; }
 
+        [Display(Name="Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 
         public override string ToString() => $"[{WorkerId}] {FirstName} {LastName} {PhoneNumber} {Email} {CreatedUtc}";

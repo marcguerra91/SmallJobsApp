@@ -45,6 +45,14 @@ namespace SmallJobsApp_BlueBadge.Controllers
 
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateJobService();
+            var model = svc.GetJobById(id);
+
+            return View(model);
+        }
+
         private JobServices CreateJobService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

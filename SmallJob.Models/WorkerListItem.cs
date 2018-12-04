@@ -18,6 +18,8 @@ namespace SmallJob.Models
 
         public int PhoneNumber { get; set; }
 
+        public DateTimeOffset CreatedUtc { get; set; }
+
         public override string ToString() => LastName;
     }
 }

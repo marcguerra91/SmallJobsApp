@@ -22,7 +22,6 @@ namespace SmallJob.Models
         public string Email { get; set; }
 
         [Required]
-        //[MinLength(7)]
         public int PhoneNumber { get; set; }
 
         public override string ToString() => FirstName;

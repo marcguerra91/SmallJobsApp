@@ -29,5 +29,7 @@ namespace SmallJob.Data
 
         [Required]
         public int PhoneNumber { get; set; }
+
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }

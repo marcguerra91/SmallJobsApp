@@ -58,5 +58,27 @@ namespace SmallJob.Services
              return query.ToArray();
             }
         }
+
+        public JobDetail GetJobById(int jobId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Jobs
+                    .Single(e => e.JobId == jobId && e.OwnerId == _userId);
+                return
+                    new JobDetail
+                    {
+                        JobId = entity.JobId,
+                        TitleOfJob = entity.TitleOfJob,
+                        Description = entity.Description,
+                        Pay = entity.Pay,
+                        EquipmentAvailable = entity.EquipmentAvailable,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
+            }
+        }
     }
 }
