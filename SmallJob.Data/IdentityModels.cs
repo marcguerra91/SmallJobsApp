@@ -34,6 +34,7 @@ namespace SmallJob.Data
 
         public DbSet<JobsAvailable> Jobs { get; set; }
         public DbSet<Worker> Workers { get; set; }
+        public DbSet<AssignedJobs> Assignments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
