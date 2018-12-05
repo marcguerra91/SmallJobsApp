@@ -1,0 +1,66 @@
+﻿@model SmallJob.Models.AssignedJobDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AssignedJobDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignmentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignmentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TitleOfJob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TitleOfJob)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobComplete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobComplete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.AssignmentId  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

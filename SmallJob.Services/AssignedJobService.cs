@@ -51,11 +51,51 @@ namespace SmallJob.Services
                         new AssignedJobListItem
                         {
                             AssignmentId = e.AssignmentId,
+                            JobId = e.JobId,
                             TitleOfJob = e.TitleOfJob,
+                            WorkerId = e.WorkerId,
                             CreatedUtc = e.CreatedUtc
                         }
                         );
                 return query.ToArray();
+            }
+        }
+
+        public AssignedJobDetail GetAssignedJobById(int assignmentId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Assignments
+                    .Single(e => e.AssignmentId == assignmentId && e.OwnerId == _userId);
+                return
+                    new AssignedJobDetail
+                    {
+                        AssignmentId = entity.AssignmentId,
+                        JobId = entity.JobId,
+                        TitleOfJob = entity.TitleOfJob,
+                        WorkerId = entity.WorkerId,
+                        JobComplete = entity.JobComplete,
+                        CreatedUtc = entity.CreatedUtc
+                    };
+            }
+        }
+
+        public bool UpdateAssignedJob(AssignedJobEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Assignments
+                    .Single(e => e.AssignmentId == model.AssignmentId && e.OwnerId == _userId);
+
+                entity.JobId = model.JobId;
+                entity.TitleOfJob = model.TitleOfJob;
+                entity.WorkerId = model.WorkerId;
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }

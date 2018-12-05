@@ -280,6 +280,8 @@
     <Content Include="Views\Worker\Delete.cshtml" />
     <Content Include="Views\AssignedJobs\Index.cshtml" />
     <Content Include="Views\AssignedJobs\Create.cshtml" />
+    <Content Include="Views\AssignedJobs\Details.cshtml" />
+    <Content Include="Views\AssignedJobs\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

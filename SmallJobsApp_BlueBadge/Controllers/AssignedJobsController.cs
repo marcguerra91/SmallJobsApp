@@ -45,6 +45,56 @@ namespace SmallJobsApp_BlueBadge.Controllers
 
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateAssignedJobService();
+            var model = svc.GetAssignedJobById(id);
+
+            return View(model);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateAssignedJobService();
+            var detail = service.GetAssignedJobById(id);
+            var model =
+                new AssignedJobEdit
+                {
+                    AssignmentId = detail.AssignmentId,
+                    JobId = detail.JobId,
+                    TitleOfJob = detail.TitleOfJob,
+                    WorkerId = detail.WorkerId,
+                    JobComplete = detail.JobComplete,
+
+                };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, AssignedJobEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.AssignmentId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateAssignedJobService();
+
+            if (service.UpdateAssignedJob(model))
+            {
+                TempData["SaveResult"] = "Your assignment was updated.";
+                return View(model);
+            }
+
+            ModelState.AddModelError("", "Your assignment could not be updated.");
+            return View(model);
+        }
+
         private AssignedJobService CreateAssignedJobService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

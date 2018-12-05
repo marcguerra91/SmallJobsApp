@@ -55,11 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssignedJobCreate.cs" />
+    <Compile Include="AssignedJobDetail.cs" />
     <Compile Include="AssignedJobListItem.cs" />
     <Compile Include="JobCreate.cs" />
     <Compile Include="JobDetail.cs" />
     <Compile Include="JobEdit.cs" />
     <Compile Include="JobsListItem.cs" />
+    <Compile Include="AssignedJobEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkerCreate.cs" />
     <Compile Include="WorkerDetail.cs" />
