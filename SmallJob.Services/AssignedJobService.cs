@@ -26,6 +26,7 @@ namespace SmallJob.Services
                     OwnerId = _userId,
                     JobId = model.JobId,
                     TitleOfJob = model.TitleOfJob,
+                    EquipmentAvailable = model.EquipmentAvailable,
                     WorkerId = model.WorkerId,
                     CreatedUtc = DateTimeOffset.Now
 
@@ -54,6 +55,7 @@ namespace SmallJob.Services
                             JobId = e.JobId,
                             TitleOfJob = e.TitleOfJob,
                             WorkerId = e.WorkerId,
+                            JobComplete = e.JobComplete,
                             CreatedUtc = e.CreatedUtc
                         }
                         );
@@ -75,6 +77,7 @@ namespace SmallJob.Services
                         AssignmentId = entity.AssignmentId,
                         JobId = entity.JobId,
                         TitleOfJob = entity.TitleOfJob,
+                        EquipmentAvailable = entity.EquipmentAvailable,
                         WorkerId = entity.WorkerId,
                         JobComplete = entity.JobComplete,
                         CreatedUtc = entity.CreatedUtc
@@ -94,7 +97,6 @@ namespace SmallJob.Services
                 entity.JobId = model.JobId;
                 entity.TitleOfJob = model.TitleOfJob;
                 entity.WorkerId = model.WorkerId;
-                entity.EquipmentAvailable = model.EquipmentAvailable;
                 entity.JobComplete = model.JobComplete;
 
                 return ctx.SaveChanges() == 1;

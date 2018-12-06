@@ -17,6 +17,8 @@ namespace SmallJob.Models
 
         public int WorkerId { get; set; }
 
+        public bool EquipmentAvailable { get; set; }
+
         public override string ToString() => TitleOfJob;
     }
 }
