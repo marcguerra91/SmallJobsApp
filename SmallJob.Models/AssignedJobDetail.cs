@@ -19,6 +19,8 @@ namespace SmallJob.Models
 
         public bool JobComplete { get; set; }
 
+        public bool EquipmentAvailable { get; set; }
+
         [Display(Name="Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 

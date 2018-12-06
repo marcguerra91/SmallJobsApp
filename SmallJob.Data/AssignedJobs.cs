@@ -23,6 +23,8 @@ namespace SmallJob.Data
         [Required]
         public bool JobComplete { get; set; }
 
+        public bool EquipmentAvailable { get; set; }
+
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
 

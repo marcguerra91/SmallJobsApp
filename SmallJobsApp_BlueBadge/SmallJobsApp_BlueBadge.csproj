@@ -282,6 +282,7 @@
     <Content Include="Views\AssignedJobs\Create.cshtml" />
     <Content Include="Views\AssignedJobs\Details.cshtml" />
     <Content Include="Views\AssignedJobs\Edit.cshtml" />
+    <Content Include="Views\AssignedJobs\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

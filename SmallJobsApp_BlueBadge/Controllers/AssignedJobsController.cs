@@ -71,6 +71,29 @@ namespace SmallJobsApp_BlueBadge.Controllers
             return View(model);
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateAssignedJobService();
+            var model = svc.GetAssignedJobById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateAssignedJobService();
+
+            service.DeleteAssignedJob(id);
+
+            TempData["SaveResult"] = "Your assignment was delete";
+
+            return RedirectToAction("Index");
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, AssignedJobEdit model)
@@ -88,7 +111,7 @@ namespace SmallJobsApp_BlueBadge.Controllers
             if (service.UpdateAssignedJob(model))
             {
                 TempData["SaveResult"] = "Your assignment was updated.";
-                return View(model);
+                return RedirectToAction("Index");
             }
 
             ModelState.AddModelError("", "Your assignment could not be updated.");

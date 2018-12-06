@@ -94,6 +94,24 @@ namespace SmallJob.Services
                 entity.JobId = model.JobId;
                 entity.TitleOfJob = model.TitleOfJob;
                 entity.WorkerId = model.WorkerId;
+                entity.EquipmentAvailable = model.EquipmentAvailable;
+                entity.JobComplete = model.JobComplete;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteAssignedJob(int assignmentId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+
+                    .Assignments
+                    .Single(e => e.AssignmentId == assignmentId && e.OwnerId == _userId);
+
+                ctx.Assignments.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
