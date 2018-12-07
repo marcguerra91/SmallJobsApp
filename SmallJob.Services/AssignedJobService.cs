@@ -56,6 +56,7 @@ namespace SmallJob.Services
                             TitleOfJob = e.TitleOfJob,
                             WorkerId = e.WorkerId,
                             JobComplete = e.JobComplete,
+                            Worker = e.Worker,
                             CreatedUtc = e.CreatedUtc
                         }
                         );
@@ -100,6 +101,7 @@ namespace SmallJob.Services
                 entity.TitleOfJob = model.TitleOfJob;
                 entity.WorkerId = model.WorkerId;
                 entity.JobComplete = model.JobComplete;
+                
 
                 return ctx.SaveChanges() == 1;
             }

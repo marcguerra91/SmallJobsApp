@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SmallJob.Data;
 
 namespace SmallJob.Models
 {
@@ -26,6 +27,8 @@ namespace SmallJob.Models
 
         [Display(Name="In progress since:")]
         public DateTimeOffset CreatedUtc { get; set; }
+
+        public Worker Worker { get; set; }
 
         public override string ToString() => TitleOfJob;
     }

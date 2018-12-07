@@ -35,7 +35,7 @@ namespace SmallJob.Data
         public string FullName
         {
             get { return _fullName; }
-            set { _fullName = FirstName + " " + LastName; }
+            set { _fullName = FirstName + "," + LastName; }
         }
 
 

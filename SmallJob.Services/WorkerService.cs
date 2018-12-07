@@ -53,7 +53,8 @@ namespace SmallJob.Services
                             LastName = e.LastName,
                             Email = e.Email,
                             PhoneNumber = e.PhoneNumber,
-                            CreatedUtc = e.CreatedUtc
+                            CreatedUtc = e.CreatedUtc,
+                            FullName = e.FullName,
                         }
                      );
                 return query.ToArray();

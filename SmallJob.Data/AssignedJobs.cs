@@ -30,6 +30,8 @@ namespace SmallJob.Data
 
         public virtual Worker Worker { get; set; }
         public virtual JobsAvailable Jobs { get; set; }
+
         public Guid OwnerId { get; set; }
+        public object FullName { get; set; }
     }
 }

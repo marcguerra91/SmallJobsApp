@@ -25,8 +25,8 @@ namespace SmallJob.Models
         public bool JobComplete { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }
-        public object LastName { get; set; }
-        public object FirstName { get; set; }
         public string FullName { get; set; }
+
+        public string Worker { get; set; }
     }
 }

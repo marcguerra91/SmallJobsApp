@@ -33,7 +33,7 @@ namespace SmallJobsApp_BlueBadge.Controllers
             
 
             ViewBag.JobId = new SelectList(jobs, "JobId", "TitleOfJob");
-            ViewBag.WorkerId = new SelectList(worker, "WorkerId", "LastName");
+            ViewBag.WorkerId = new SelectList(worker, "WorkerId", "FullName");
             return View();
         }
 
@@ -89,7 +89,7 @@ namespace SmallJobsApp_BlueBadge.Controllers
             var worker = workerService.GetWorkers();
 
             ViewBag.JobId = new SelectList(jobs, "JobId", "TitleOfJob", detail.JobId);
-            ViewBag.WorkerId = new SelectList(worker, "WorkerId", "FullName", detail.JobId);
+            ViewBag.WorkerId = new SelectList(worker, "WorkerId", "FullName", detail.WorkerId);
 
             var model =
                 new AssignedJobEdit
@@ -99,8 +99,6 @@ namespace SmallJobsApp_BlueBadge.Controllers
                     FullName = detail.FullName,
                     TitleOfJob = detail.TitleOfJob,
                     WorkerId = detail.WorkerId,
-                    FirstName = detail.FirstName,
-                    LastName = detail.LastName,
                     JobComplete = detail.JobComplete,
 
                 };
@@ -142,7 +140,7 @@ namespace SmallJobsApp_BlueBadge.Controllers
             var worker = workerService.GetWorkers();
 
             ViewBag.JobId = new SelectList(jobs, "JobId", "TitleOfJob");
-            ViewBag.WorkerId = new SelectList(worker, "WorkerId", "LastName");
+            ViewBag.WorkerId = new SelectList(worker, "WorkerId", "FullName");
 
             if (!ModelState.IsValid) return View(model);
 
