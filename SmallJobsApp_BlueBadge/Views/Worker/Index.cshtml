@@ -4,22 +4,27 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Modest Workers</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 @if (TempData.ContainsKey("SaveResult"))
 {
-<div class="alert alert-success fade in" role="alert">
+    <div class="alert alert-success fade in" role="alert">
 
-    <button type="button" class="close" data-dismiss="alert">
-    <span>&times;</span>
-    </button>
-    @TempData["SaveResult"]
-</div>
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
 }
 
+<style type="text/css">
+    .table th, .table td{
+        text-align:center;
+    }
+</style>
 <table class="table">
     <tr>
         <th>

@@ -9,11 +9,13 @@ namespace SmallJob.Models
 {
     public class JobsListItem
     {
+        [Display(Name ="Job ID")]
         public int JobId { get; set; }
 
+        [Display(Name ="Title of job")]
         public string TitleOfJob { get; set; }
 
-        [Display(Name="Created Job")]
+        [Display(Name="Created job")]
         public DateTimeOffset CreatedUtc { get; set; }
 
         public int Pay { get; set; }

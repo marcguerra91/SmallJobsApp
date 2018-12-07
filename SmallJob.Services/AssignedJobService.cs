@@ -76,11 +76,13 @@ namespace SmallJob.Services
                     {
                         AssignmentId = entity.AssignmentId,
                         JobId = entity.JobId,
-                        TitleOfJob = entity.TitleOfJob,
+                        TitleOfJob = entity.Jobs.TitleOfJob,
+                        FullName = entity.Worker.FullName,
                         EquipmentAvailable = entity.EquipmentAvailable,
                         WorkerId = entity.WorkerId,
                         JobComplete = entity.JobComplete,
                         CreatedUtc = entity.CreatedUtc
+                        
                     };
             }
         }

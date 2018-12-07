@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmallJob.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -27,9 +28,19 @@ namespace SmallJob.Models
         [Display(Name ="Equipment Available:")]
         public bool EquipmentAvailable { get; set; }
 
+        [Display(Name ="First Name")]
+        public string FirstName { get; set; }
+
+        public string FullName { get; set; }
+
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
 
         [Display(Name="Created:")]
         public DateTimeOffset CreatedUtc { get; set; }
+
+        public virtual Worker Worker { get; set; }
+
 
         public override string ToString() => $"[{AssignmentId}] {TitleOfJob}";
     }

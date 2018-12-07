@@ -24,7 +24,31 @@ namespace SmallJobsApp_BlueBadge.Controllers
 
         public ActionResult Create()
         {
+            var jobService = CreateJobService();
+            var jobs = jobService.GetJobs();
+
+            var workerService = CreateWorkerService();
+            var worker = workerService.GetWorkers();
+
+            
+
+            ViewBag.JobId = new SelectList(jobs, "JobId", "TitleOfJob");
+            ViewBag.WorkerId = new SelectList(worker, "WorkerId", "LastName");
             return View();
+        }
+
+        private WorkerService CreateWorkerService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new WorkerService(userId);
+            return service;
+        }
+
+        private JobServices CreateJobService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new JobServices(userId);
+            return service;
         }
 
         [HttpPost]
@@ -57,13 +81,26 @@ namespace SmallJobsApp_BlueBadge.Controllers
         {
             var service = CreateAssignedJobService();
             var detail = service.GetAssignedJobById(id);
+
+            var jobService = CreateJobService();
+            var jobs = jobService.GetJobs();
+
+            var workerService = CreateWorkerService();
+            var worker = workerService.GetWorkers();
+
+            ViewBag.JobId = new SelectList(jobs, "JobId", "TitleOfJob", detail.JobId);
+            ViewBag.WorkerId = new SelectList(worker, "WorkerId", "FullName", detail.JobId);
+
             var model =
                 new AssignedJobEdit
                 {
                     AssignmentId = detail.AssignmentId,
                     JobId = detail.JobId,
+                    FullName = detail.FullName,
                     TitleOfJob = detail.TitleOfJob,
                     WorkerId = detail.WorkerId,
+                    FirstName = detail.FirstName,
+                    LastName = detail.LastName,
                     JobComplete = detail.JobComplete,
 
                 };
@@ -98,6 +135,15 @@ namespace SmallJobsApp_BlueBadge.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, AssignedJobEdit model)
         {
+            var jobService = CreateJobService();
+            var jobs = jobService.GetJobs();
+
+            var workerService = CreateWorkerService();
+            var worker = workerService.GetWorkers();
+
+            ViewBag.JobId = new SelectList(jobs, "JobId", "TitleOfJob");
+            ViewBag.WorkerId = new SelectList(worker, "WorkerId", "LastName");
+
             if (!ModelState.IsValid) return View(model);
 
             if(model.AssignmentId != id)

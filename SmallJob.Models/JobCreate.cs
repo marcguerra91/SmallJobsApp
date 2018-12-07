@@ -10,6 +10,7 @@ namespace SmallJob.Models
     public class JobCreate
     {
         [Required]
+        [Display(Name ="Title of job")]
         public string TitleOfJob { get; set; }
 
         [Required]
@@ -20,6 +21,7 @@ namespace SmallJob.Models
         public int Pay { get; set; }
 
         [Required]
+        [Display(Name ="Equipment available")]
         public bool EquipmentAvailable { get; set; }
 
         public override string ToString() => TitleOfJob;

@@ -30,6 +30,15 @@ namespace SmallJob.Data
         [Required]
         public int PhoneNumber { get; set; }
 
+        private string _fullName;
+
+        public string FullName
+        {
+            get { return _fullName; }
+            set { _fullName = FirstName + " " + LastName; }
+        }
+
+
         public DateTimeOffset CreatedUtc { get; set; }
     }
 }

@@ -72,5 +72,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmallJob.Data\SmallJob.Data.csproj">
+      <Project>{6ECFFEFB-2E8A-4F4D-98C1-00CB0BC6E52B}</Project>
+      <Name>SmallJob.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
