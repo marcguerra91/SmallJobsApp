@@ -20,12 +20,8 @@
     </div>
 }
 
-<style type="text/css">
-    .table th, .table td{
-        text-align:center;
-    }
-</style>
-<table class="table">
+
+<table class="table table-hover table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.WorkerId)
@@ -63,10 +59,17 @@
             @Html.DisplayFor(modelItem => item.PhoneNumber)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.WorkerId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.WorkerId }) |
+            <button class="btn btn-warning">
+            @Html.ActionLink("Edit", "Edit", new {  id=item.WorkerId })
+            </button>
+            <button class="btn btn-info">
+            @Html.ActionLink("Details", "Details", new { id=item.WorkerId })
+            </button>
+            <button class="btn btn-danger">
             @Html.ActionLink("Delete", "Delete", new { id=item.WorkerId })
+            </button>
         </td>
+
     </tr>
 }
 

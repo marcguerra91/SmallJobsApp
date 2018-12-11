@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Current Available Jobs</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Job", "Create")
 </p>
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -20,7 +20,8 @@
     </div>
 }
 
-    <table class="table">
+
+    <table class="table table-hover table-striped" >
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.JobId)
@@ -53,9 +54,16 @@
                     @Html.DisplayFor(modelItem => item.Pay)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.JobId }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.JobId }) |
+                    <button class="btn btn-warning">
+                    @Html.ActionLink("Edit", "Edit", new { id=item.JobId })
+                    </button>
+                    <button class="btn btn-info">
+                    @Html.ActionLink("Details", "Details", new { id=item.JobId })
+                    </button>
+                    <button class="btn btn-danger">
                     @Html.ActionLink("Delete", "Delete", new { id=item.JobId })
+                    </button>
+
                 </td>
             </tr>
         }

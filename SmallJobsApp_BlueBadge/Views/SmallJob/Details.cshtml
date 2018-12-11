@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>JobDetail</h4>
+    <h4>Job Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -16,14 +16,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.JobId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.OwnerId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OwnerId)
         </dd>
 
         <dt>
@@ -77,6 +69,11 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.JobId }) |
+    <button class="btn btn-warning">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JobId })
+    </button>
+    <button class="btn btn-default">
     @Html.ActionLink("Back to List", "Index")
+    </button>
+
 </p>
