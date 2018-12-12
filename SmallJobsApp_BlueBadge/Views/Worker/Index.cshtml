@@ -59,15 +59,9 @@
             @Html.DisplayFor(modelItem => item.PhoneNumber)
         </td>
         <td>
-            <button class="btn btn-warning">
-            @Html.ActionLink("Edit", "Edit", new {  id=item.WorkerId })
-            </button>
-            <button class="btn btn-info">
-            @Html.ActionLink("Details", "Details", new { id=item.WorkerId })
-            </button>
-            <button class="btn btn-danger">
-            @Html.ActionLink("Delete", "Delete", new { id=item.WorkerId })
-            </button>
+            @Html.ActionLink("Edit", "Edit", new { id = item.WorkerId }, htmlAttributes: new { @class = "btn btn-warning" })
+            @Html.ActionLink("Details", "Details", new { id = item.WorkerId }, htmlAttributes: new { @class = "btn btn-info" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.WorkerId }, htmlAttributes: new { @class = "btn btn-danger" })
         </td>
 
     </tr>

@@ -76,9 +76,12 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        <a class="btn btn-default"
+           href="@Url.Action("Index", "SmallJob")">
+            Back to list
+        </a>
+    </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -72,8 +72,9 @@
     <button class="btn btn-warning">
     @Html.ActionLink("Edit", "Edit", new { id = Model.JobId })
     </button>
-    <button class="btn btn-default">
-    @Html.ActionLink("Back to List", "Index")
-    </button>
+    <a class="btn btn-default"
+       href="@Url.Action("Index", "SmallJob")">
+        Back to list
+    </a>
 
 </p>

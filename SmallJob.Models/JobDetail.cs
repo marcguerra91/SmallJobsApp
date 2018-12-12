@@ -9,16 +9,20 @@ namespace SmallJob.Models
 {
     public class JobDetail
     {
+        [Display(Name ="Job ID")]
         public int JobId { get; set; }
 
+        [Display(Name ="Owner ID")]
         public int OwnerId { get; set; }
 
+        [Display(Name ="Title of job")]
         public string TitleOfJob { get; set; }
 
         public string Description { get; set; }
 
         public int Pay { get; set; }
 
+        [Display(Name ="Equipment Available")]
         public bool EquipmentAvailable { get; set; }
 
         [Display(Name="Created")]

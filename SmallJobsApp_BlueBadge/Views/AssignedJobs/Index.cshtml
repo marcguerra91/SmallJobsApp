@@ -4,24 +4,24 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Jobs in Progress</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create new", "Create")
 </p>
 
 @if (TempData.ContainsKey("SaveResult"))
 {
 <div class="alert alert-success fade in" role="alert">
     <button type="button" class="close" data-dismiss="alert">
-        <span>&times;</span>
+        <span>&times;</span>    
     </button>
     @TempData["SaveResult"]
 </div> 
 }
 
 
-<table class="table table-striped table-hover table-condensed">
+<table class="table table-hover table-condensed">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.AssignmentId)
@@ -44,9 +44,10 @@
 
     @foreach (var item in Model)
     {
+        if (item.JobComplete)
 
         {
-            <tr >
+            <tr class="jobComplete">
 
                 <td>
                     @Html.DisplayFor(modelItem => item.AssignmentId)
@@ -64,16 +65,36 @@
                     @Html.DisplayFor(modelItem => item.CreatedUtc)
                 </td>
                 <td>
-                    
-                    <button class="btn btn-warning">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.AssignmentId })
-                    </button>
-                    <button class="btn btn-info">
-                    @Html.ActionLink("Details", "Details", new { id = item.AssignmentId })
-                    </button>
-                    <button class="btn btn-danger">
-                    @Html.ActionLink("Delete", "Delete", new { id = item.AssignmentId })
-                    </button>   
+                    @Html.ActionLink("Edit", "Edit", new { id = item.AssignmentId }, htmlAttributes: new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Details", "Details", new { id = item.AssignmentId }, htmlAttributes: new { @class = "btn btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AssignmentId }, htmlAttributes: new { @class = "btn btn-danger" })
+
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr class="jobCompleteFalse">
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssignmentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorkerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobComplete)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedUtc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.AssignmentId }, htmlAttributes: new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Details", "Details", new { id = item.AssignmentId }, htmlAttributes: new { @class = "btn btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AssignmentId }, htmlAttributes: new {@class = "btn btn-danger"}) 
                 </td>
             </tr>
         }

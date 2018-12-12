@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Create";
 }
+<body class="createBackground">
 
 <h2>Join the team!</h2>
 
@@ -10,9 +11,7 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
     <div class="form-horizontal">
-        <h4>Add Worker Information</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -56,13 +55,15 @@
     </div>
 }
 
-<div>
-    <button class="btn btn-default">
-    @Html.ActionLink("Back to List", "Index")
-    </button>
+    <div>
+        <a class="btn btn-default"
+           href="@Url.Action("Index", "Worker")">
+            Back to list
+        </a>
 
-</div>
+    </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+</body>
 }

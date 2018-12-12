@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>AssignedJobEdit</h4>
+        <h4>Edit assignment information</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -62,7 +62,10 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <a class="btn btn-default"
+    href="@Url.Action("Index", "AssignedJobs")">Back to list
+    </a>
+
 </div>
 
 @section Scripts {

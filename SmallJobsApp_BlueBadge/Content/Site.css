@@ -3,6 +3,7 @@
     padding-bottom: 20px;
 }
 
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -28,7 +29,90 @@ textarea {
 .table th, .table td {
     text-align: center;
 }
-#informationHelp{
-    color:royalblue;
+#informationHelp {
+    color: firebrick;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius:3px 4px;
+}
 
+.jumbotron {
+    background-color: grey;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.jobComplete{
+    background-color:lightcoral;
+}
+.jobCompleteFalse{
+    background-color:lightgreen;
+}
+
+.mainBackground {
+    background-image: url('Images/apply-blue-brush-221027.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.mainText{
+    color: white;
+    text-shadow: 1px 1px #000000;
+}
+.row{
+    background-color:grey;
+    background-color:rgba(0, 0, 0, 0.3);
+    border-radius:4px 4px
+
+}
+
+.button1 {
+    display: inline-block;
+    border-radius: 4px;
+    background-color:burlywood;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    padding: 3px;
+    width: 120px;
+    transition: all 0.4s;
+    cursor: pointer;
+    margin: 1px;
+}
+.button1 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.4s;
+}
+
+    .button1 span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.4s;
+    }
+
+.button1:hover span {
+    padding-right: 25px;
+}
+
+    .button1:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+
+    /* worker css */
+
+.createBackground {
+    background-image: url('Images/collaboration-community-cooperation-872955.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.form-horizontal {
+    background-color: grey;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px 4px
 }
