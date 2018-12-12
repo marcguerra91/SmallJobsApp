@@ -3,11 +3,12 @@
 @{
     ViewBag.Title = "Details";
 }
+<body class="workerIndex">
+    <div class="workerList">
 
-<h2>Details</h2>
+<h2>Worker Details</h2>
 
 <div>
-    <h4>Worker Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -53,10 +54,11 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.WorkerId })
 
     <a class="btn btn-default"
        href="@Url.Action("Index", "Worker")">
         Back to list
     </a>
 </p>
+    </div>
+</body>

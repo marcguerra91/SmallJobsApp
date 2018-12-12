@@ -116,3 +116,26 @@ textarea {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 4px 4px
 }
+
+.workerIndex {
+    background-image: url('Images/blur-board-game-challenge-209712.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color:white;
+}
+.workerList {
+    background-color: grey;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 4px 4px
+}
+.jobList {
+    background-image: url('Images/architect-architecture-body-33343.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color:white;
+}
+.jobsInProgress {
+    background-image: url('Images/art-artist-background-316466.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

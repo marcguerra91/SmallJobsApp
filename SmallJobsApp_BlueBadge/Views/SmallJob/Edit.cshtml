@@ -3,8 +3,7 @@
 @{
     ViewBag.Title = "Edit";
 }
-
-<h2>Edit</h2>
+<body class="jobList">
 
 
 @using (Html.BeginForm())
@@ -12,7 +11,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>JobEdit</h4>
+        <h3>Edit Job</h3>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -85,4 +84,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+</body>
 }
