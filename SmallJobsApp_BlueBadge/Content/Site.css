@@ -66,25 +66,21 @@ textarea {
     background-color: rgba(0, 0, 0, 0.3);
     background-position: left;
     border-radius: 5px;
-    margin: 3.5em 4px 4em 4px;
-    position:relative;
+    margin: 3.5em 4px 4em 37px;
 
 }
 #middleColumn {
     background-color: grey;
-    background-position: center;
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 5px;
-    margin: 3.5em 4px 4em 4px;
-    position:relative;
+    margin: 3.5em 5px 4em 22em;
 }
 #rightColumn {
-    position:relative;
     background-color: grey;
     background-position:right;
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 5px;
-    margin: 3.5em 4px 4em 4px;
+    margin: 3.5em 4px 4em 28em;
 }
 
 .button1 {
@@ -167,4 +163,9 @@ textarea {
 }
 .navbar {
     background-color: #4A5494;
+}
+.about {
+    background-image: url('Images/art-artist-black-and-white-265047 (1).jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
 }
