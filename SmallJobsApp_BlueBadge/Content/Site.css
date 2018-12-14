@@ -57,11 +57,34 @@ textarea {
     color: white;
     text-shadow: 1px 1px #000000;
 }
-.row{
-    background-color:grey;
-    background-color:rgba(0, 0, 0, 0.3);
-    border-radius:10px 10px;
+/*.row {
+    background-color: grey;
+    background-color: rgba(0, 0, 0, 0.3);
+}*/
+#leftColumn {
+    background-color: grey;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-position: left;
+    border-radius: 5px;
+    margin: 3.5em 4px 4em 4px;
+    position:relative;
 
+}
+#middleColumn {
+    background-color: grey;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    margin: 3.5em 4px 4em 4px;
+    position:relative;
+}
+#rightColumn {
+    position:relative;
+    background-color: grey;
+    background-position:right;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    margin: 3.5em 4px 4em 4px;
 }
 
 .button1 {
@@ -138,4 +161,10 @@ textarea {
     background-image: url('Images/art-artist-background-316466.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+}
+#font {
+    font-family: 'Averia Serif Libre', cursive;
+}
+.navbar {
+    background-color: #4A5494;
 }
