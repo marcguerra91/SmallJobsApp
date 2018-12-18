@@ -41,10 +41,10 @@ textarea {
 }
 
 .jobComplete{
-    background-color:lightcoral;
+    background-color:lightgreen;
 }
 .jobCompleteFalse{
-    background-color:lightgreen;
+    background-color:lightcoral;
 }
 
 .mainBackground {
